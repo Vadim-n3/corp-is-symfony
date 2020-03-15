@@ -13,7 +13,7 @@ class FilmController extends AbstractController
         return $this->json(['film_id' => ['matchedgenrefilmid1', 'matchedgenrefilmid2',],], $status = 200);
     }
 
-    public function getFilm($id)
+    public function getFilm($filmID)
     {
     	$films = [
     		[
@@ -27,52 +27,52 @@ class FilmController extends AbstractController
     	];
 
     	$result = "";
-    	foreach ($films as $value) if ($value['CityID'] == $id) 
+    	foreach ($films as $value)
     	{
-    		if ($value['id'] == $id)
+    		if ($value['id'] == $filmID)
     		{
-    			$result = $value['link'];
+    			$result = ['link' => $value['link'],];
     		}
     	}
         return $this->json($result, $status = 200);
     }
 
-    public function putFilm($id)
+    public function putFilm($filmID)
     {
         return $this->json(['link' => 'created_link',], $status = 201);
     }
 
-    public function patchFilm($id)
+    public function patchFilm($filmID)
     {
         return $this->json(['link' => 'updated_link',], $status = 200);
     }
 
-    public function deleteFilm($id)
+    public function deleteFilm($filmID)
     {
         return $this->json('', $status = 204);
     }
 
-    public function getFilmGallery($id)
+    public function getFilmGallery($filmID)
     {
         return $this->json(['images' => ['binaryimage1', 'binaryimage2',],], $status = 200);
     }
 
-    public function putFilmGallery($id)
+    public function putFilmGallery($filmID)
     {
         return $this->json(['images' => ['createdbinaryimage1', 'createdbinaryimage2',],], $status = 201);
     }
 
-    public function deleteFilmGallery($id)
+    public function deleteFilmGallery($filmID)
     {
         return $this->json(['images' => ['deletedbinaryimage1', 'deletedbinaryimage2',],], $status = 204);
     }
 
-    public function getFilmSimilar($id)
+    public function getFilmSimilar($filmID)
     {
         return $this->json(['film_id' => ['similarid1he54yu4sdgshg', 'similarid2gadsgasegs352sdgf',],], $status = 200);
     }
 
-    public function getFilmStuff($id)
+    public function getFilmStuff($filmID)
     {
         return $this->json(['author' => ['author1', 'author2'],
 					        'director' => ['director1', 'director2'],
@@ -82,7 +82,7 @@ class FilmController extends AbstractController
 					        $status = 200);
 					    }
 
-    public function putFilmStuff($id)
+    public function putFilmStuff($filmID)
     {
         return $this->json(['author' => ['newauthor1', 'newauthor2'],
 					        'director' => ['newdirector1', 'newdirector2'],
@@ -90,10 +90,10 @@ class FilmController extends AbstractController
 					        'actor' => ['newactor1', 'newactor2'],
 					        'genre' => ['action', 'detective',],
 					        ],
-					        $status = 200);
+					        $status = 201);
     }
 
-    public function patchFilmStuff($id)
+    public function patchFilmStuff($filmID)
     {
         return $this->json(['author' => ['updauthor1', 'updauthor2',],
 					        'director' => ['upddirector1', 'upddirector2',],
@@ -104,7 +104,7 @@ class FilmController extends AbstractController
 					        $status = 200);
     }
 
-    public function deleteFilmStuff($id)
+    public function deleteFilmStuff($filmID)
     {
         return $this->json('', $status = 204);
     }

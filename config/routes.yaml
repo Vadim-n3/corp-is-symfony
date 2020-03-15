@@ -5,16 +5,20 @@ DeleteFilm:
   path: "/films/{filmID}"
 DeleteFilmGallery: 
   controller: "App\\Controller\\FilmController::deleteFilmGallery"
-  methods: DELETE\
+  methods: DELETE
   path: "/films/{filmID}/gallery"
 DeleteFilmStuff: 
   controller: "App\\Controller\\FilmController::deleteFilmStuff"
   methods: DELETE
   path: "/films/{filmID}/stuff"
-GetFilm: 
+GetFilms: 
   controller: "App\\Controller\\FilmController::getFilms"
   methods: GET
   path: /films
+GetFilm: 
+  controller: "App\\Controller\\FilmController::getFilm"
+  methods: GET
+  path: /films/{filmID}
 GetFilmGallery: 
   controller: "App\\Controller\\FilmController::getFilmGallery"
   methods: GET
@@ -39,6 +43,10 @@ PatchFilm:
   controller: "App\\Controller\\FilmController::patchFilm"
   methods: PATCH
   path: "/films/{filmID}"
+PatchFilmStuff: 
+  controller: "App\\Controller\\FilmController::patchFilmStuff"
+  methods: PATCH
+  path: "/films/{filmID}/stuff"
 PutFilm: 
   controller: "App\\Controller\\FilmController::putFilm"
   methods: PUT
