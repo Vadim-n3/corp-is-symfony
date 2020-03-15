@@ -1,3 +1,57 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+--- 
+DeleteFilm: 
+  controller: "App\\Controller\\FilmController::deleteFilm"
+  methods: DELETE
+  path: "/films/{filmID}"
+DeleteFilmGallery: 
+  controller: "App\\Controller\\FilmController::deleteFilmGallery"
+  methods: DELETE\
+  path: "/films/{filmID}/gallery"
+DeleteFilmStuff: 
+  controller: "App\\Controller\\FilmController::deleteFilmStuff"
+  methods: DELETE
+  path: "/films/{filmID}/stuff"
+GetFilm: 
+  controller: "App\\Controller\\FilmController::getFilms"
+  methods: GET
+  path: /films
+GetFilmGallery: 
+  controller: "App\\Controller\\FilmController::getFilmGallery"
+  methods: GET
+  path: "/films/{filmID}/gallery"
+GetFilmSimilar: 
+  controller: "App\\Controller\\FilmController::getFilmSimilar"
+  methods: GET
+  path: "/films/{filmID}/similar"
+GetFilmStuff: 
+  controller: "App\\Controller\\FilmController::getFilmStuff"
+  methods: GET
+  path: "/films/{filmID}/stuff"
+GetGenres: 
+  controller: "App\\Controller\\GenreController::getGenres"
+  methods: GET
+  path: /genres
+GetToken: 
+  controller: "App\\Controller\\AuthController::getToken"
+  methods: GET
+  path: /authorization
+PatchFilm: 
+  controller: "App\\Controller\\FilmController::patchFilm"
+  methods: PATCH
+  path: "/films/{filmID}"
+PutFilm: 
+  controller: "App\\Controller\\FilmController::putFilm"
+  methods: PUT
+  path: "/films/{filmID}"
+PutFilmGallery: 
+  controller: "App\\Controller\\FilmController::putFilmGallery"
+  methods: PUT
+  path: "/films/{filmID}/gallery"
+PutFilmStuff: 
+  controller: "App\\Controller\\FilmController::putFilmStuff"
+  methods: PUT
+  path: "/films/{filmID}/stuff"
+Registration: 
+  controller: "App\\Controller\\AuthController::registration"
+  methods: POST
+  path: /registration

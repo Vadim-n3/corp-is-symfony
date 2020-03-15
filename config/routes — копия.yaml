@@ -1,0 +1,63 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+GetFilm:
+  path: /films/{filmID}
+  controller: App\Controller\FilmController::getFilm
+  methods: GET
+PutFilm:
+  path:       /films/{filmID}
+  controller: App\Controller\FilmController::putFilm
+  methods:    PUT
+PatchFilm:
+  path:       /films/{filmID}
+  controller: App\Controller\FilmController::patchFilm
+  methods:    PATCH
+DeleteFilm:
+  path: /films/{filmID}
+  controller: App\Controller\FilmController::deleteFilm
+  methods: DELETE
+GetFilmGallery:
+  path: /films/{filmID}/gallery
+  controller: App\Controller\FilmController::getFilmGallery
+  methods: GET
+PutFilmGallery:
+  path: /films/{filmID}/gallery
+  controller: App\Controller\FilmController::putFilmGallery
+  methods: PUT
+DeleteFilmGallery:
+  path: /films/{filmID}/gallery
+  controller: App\Controller\FilmController::deleteFilmGallery
+  methods: DELETE\
+GetFilmStuff:
+  path: /films/{filmID}/stuff
+  controller: App\Controller\FilmController::getFilmStuff
+  methods: GET
+PutFilmStuff:
+  path: /films/{filmID}/stuff
+  controller: App\Controller\FilmController::putFilmStuff
+  methods: PUT
+DeleteFilmStuff:
+  path: /films/{filmID}/stuff
+  controller: App\Controller\FilmController::deleteFilmStuff
+  methods: DELETE
+GetFilmSimilar:
+  path: /films/{filmID}/similar
+  controller: App\Controller\FilmController::getFilmSimilar
+  methods: GET
+GetFilm:
+  path: /films
+  controller: App\Controller\FilmController::getFilms
+  methods: GET
+GetGenres:
+  path: /genres
+  controller: App\Controller\GenreController::getGenres
+  methods: GET
+Registration:
+  path: /registration
+  controller: App\Controller\AuthController::registration
+  methods: POST
+GetToken:
+  path: /authorization
+  controller: App\Controller\GenreController::getToken
+  methods: GET
