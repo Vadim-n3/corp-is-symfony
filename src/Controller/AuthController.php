@@ -3,22 +3,44 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\User;
+use App\Entity\AccessToken;
+use Doctrine\ORM\EntityManagerInterface;
 
 class AuthController extends AbstractController
 {
 	public function registration()
     {
+        $request = Request::createFromGlobals();
+        $data = json_decode($request->getContent());
+        $username = $data->username;
+        $password = $data->password;  
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $user = new User();
+        $user->setUsername($link);
+        $user->setPassword($link);
+
+        $entityManager->persist($user);
+
+        $entityManager->flush();
+
         return $this->json('', $status = 201);
     }
 
     public function getToken()
     {
-        return $this->json(['access_token' => 'a4z4XoChBtHFGyMVrebwgnVcUnDEFc', 
-        			'token_type' => 'Bearer', 
-        			'expires_in' => 36000, 
-        			'refresh_token' => 'ea9sPsCPyRScREoDVl95MkQPiCF1T5',
-        			], 
-        			$status = 200);
+        $request = Request::createFromGlobals();
+        $data = json_decode($request->getContent());
+        $username = $data->username;
+        // password comparison is needed here
+        // and access token generator also
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->findBy(['username' => $username]);
+
+        return $this->json([$user->getAccessTokenId()], $status = 200);
     }
 }
 
